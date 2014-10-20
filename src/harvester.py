@@ -1,4 +1,12 @@
+#!/usr/bin/env python
+#
 # -*- coding: utf-8 -*-
+#
+# CodeHarvester - harvester.py (runner)
+#
+# Copyright (c) 2014 Denis Gonsiorovsky
+# Licensed under the MIT license
+
 import argparse
 from codeharvester.harvester import VERSION, JSHarvester
 
