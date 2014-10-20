@@ -25,6 +25,10 @@ To specify a requirement just write in the file:
 `another_file.js` will be included in the same place it was defined. If the same requirement will appear anywhere else
 it will be skipped because it is already included.
 
+For command line options run:
+
+    harvester.py --help
+
 Example
 -------
 
