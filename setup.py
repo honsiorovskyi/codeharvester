@@ -9,7 +9,7 @@ def read(fname):
 
 setup(
     name = "CodeHarvester",
-    version = "0.0.1",
+    version = "0.0.2",
     author = "Denis Gonsiorovsky",
     author_email = "dns.gnsr@gmail.com",
     description = ("A tool to merge an input file and all of its requirements into a single output file. Similar to Sprockets."),

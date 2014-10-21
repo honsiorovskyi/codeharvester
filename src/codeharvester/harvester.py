@@ -11,7 +11,7 @@ import tempfile
 import sys
 
 
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 
 logging.basicConfig(format='%(levelname)s: %(message)s')
 
@@ -117,10 +117,6 @@ class Harvester(object):
         req_paths = tuple(z[1] for z in filter(lambda x: x[0] in _indexes, enumerate(self.req_paths)))
         req_linenos = tuple(z[1] for z in filter(lambda x: x[0] in _indexes, enumerate(self.req_linenos)))
 
-        # current file does not have any requirements
-        if not req_linenos:
-            return infile
-
         if outfile_initial:
             outfile = outfile_initial
         else:
@@ -196,10 +192,12 @@ class JSHarvester(Harvester):
     def insert_requirement(self, output_file, requirement_file, requirement_filename):
         if self.flags['verbose']:
             output_file.write("\n// ----- BEGIN REQUIREMENT '{0}' -----\n".format(requirement_filename))
-            output_file.write(requirement_file.read())
+
+        output_file.write(requirement_file.read())
+        output_file.write('\n')  # needed for requirements that does not contain a newline at the end of file
+
+        if self.flags['verbose']:
             output_file.write("// ----- END REQUIREMENT '{0}' -----\n\n".format(requirement_filename))
-        else:
-            output_file.write(requirement_file.read())
 
 
 
